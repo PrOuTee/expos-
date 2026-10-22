@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposé — Aung San Suu Kyi (25 juillet 2012)</title>
+
+  <!-- Reveal.js CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0b0c10;
+      --card-bg: #15161e;
+      --card-border: #252836;
+      --text-main: #f1f2f6;
+      --text-muted: #a4b0be;
+
+      /* Couleurs pâles/pastel sobres pour le surlignage/l'analyse */
+      --pastel-yellow: #ffeaa7;
+      --pastel-blue: #74b9ff;
+      --pastel-green: #55efc4;
+      --pastel-red: #ff7675;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      color: var(--text-main);
+    }
+
+    .reveal {
+      color: var(--text-main);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      color: #ffffff;
+      text-transform: none;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* Grilles et Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      text-align: left;
+    }
+
+    .card-center {
+      text-align: center;
+    }
+
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .card h4 {
+      margin: 8px 0;
+      font-size: 1em;
+      color: #ffffff;
+    }
+
+    .card p {
+      font-size: 0.7em;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Boîte de citation stylisée */
+    .quote-container {
+      background: linear-gradient(145deg, #181922, #0f1015);
+      border-left: 4px solid var(--pastel-yellow);
+      border-radius: 8px;
+      padding: 22px;
+      text-align: left;
+      font-size: 0.85em;
+      line-height: 1.6;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Style spécifique pour réduire la taille du texte de référence */
+    .quote-reference {
+      font-size: 0.72em !important;
+      line-height: 1.6 !important;
+      padding: 18px 22px !important;
+    }
+
+    .quote-author {
+      margin-top: 15px;
+      text-align: right;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: var(--pastel-yellow);
+    }
+
+    /* Analyse textuelle - Couleurs Pâles/Pastel */
+    .phrase-yellow {
+      color: var(--pastel-yellow);
+      font-weight: 600;
+      background: rgba(255, 234, 167, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .phrase-blue {
+      color: var(--pastel-blue);
+      font-weight: 600;
+      background: rgba(116, 185, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .phrase-green {
+      color: var(--pastel-green);
+      font-weight: 600;
+      background: rgba(85, 239, 196, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.55em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      border: 1px solid currentColor;
+    }
+    .badge-yellow { color: var(--pastel-yellow); background: rgba(255, 234, 167, 0.1); }
+    .badge-blue { color: var(--pastel-blue); background: rgba(116, 185, 255, 0.1); }
+    .badge-red { color: var(--pastel-red); background: rgba(255, 118, 117, 0.1); }
+
+    /* Images stylisées */
+    .img-cover {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Timeline visuelle */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 25px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 5%;
+      width: 90%;
+      height: 2px;
+      background: #2f3542;
+      z-index: 1;
+    }
+
+    .timeline-node {
+      position: relative;
+      z-index: 2;
+      background: var(--card-bg);
+      border: 2px solid var(--pastel-yellow);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      font-size: 0.75em;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .timeline-node.danger {
+      border-color: var(--pastel-red);
+      color: var(--pastel-red);
+    }
+
+    .timeline-col {
+      width: 22%;
+      text-align: center;
+    }
+
+    .timeline-col p {
+      font-size: 0.65em;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .timeline-col strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.75em;
+    }
+
+    /* Style spécifique pour remonter les slides compactes */
+    .slide-compact {
+      margin-top: -30px !important;
+      padding-top: 0 !important;
+    }
+    .slide-compact .badge {
+      margin-bottom: 6px !important;
+    }
+    .slide-compact h3 {
+      margin-bottom: 12px !important;
+      font-size: 1.4em !important;
+    }
+    .slide-compact .card {
+      padding: 14px !important;
+    }
+    .slide-compact .card svg {
+      width: 32px !important;
+      height: 32px !important;
+      margin-bottom: 6px !important;
+    }
+    .slide-compact .card h4 {
+      margin: 4px 0 !important;
+      font-size: 0.9em !important;
+    }
+    .slide-compact .card p {
+      font-size: 0.65em !important;
+      line-height: 1.35 !important;
+    }
+
+    /* Layout latéral pour l'analyse textuelle */
+    .analysis-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .analysis-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .analysis-card-compact {
+      padding: 12px 16px;
+    }
+
+    .analysis-card-compact h4 {
+      font-size: 0.85em !important;
+      margin: 0 !important;
+    }
+
+    /* --- NAVIGATION EN CAPSULES --- */
+    .bottom-capsules {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(21, 22, 30, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 30px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .capsule {
+      width: 28px;
+      height: 8px;
+      background: #2a2d3d;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid transparent;
+    }
+
+    .capsule:hover {
+      background: rgba(255, 234, 167, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .capsule.active {
+      width: 44px;
+      background: var(--pastel-yellow);
+      box-shadow: 0 0 10px rgba(255, 234, 167, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE DE CAPSULES DE NAVIGATION -->
+  <div class="bottom-capsules" id="capsulesContainer"></div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1 : Titre -->
+      <section>
+        <span class="badge badge-yellow">Les Pouvoirs de la Parole</span>
+        <h2 style="font-size: 1.8em; margin-bottom: 10px;">Aung San Suu Kyi au Parlement</h2>
+        <p style="font-size: 0.8em; color: var(--pastel-yellow); margin-bottom: 25px;">
+          Discours inaugural du 25 juillet 2012 sur la question des minorités
+        </p>
+
+        <div class="grid-2">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" class="img-cover" alt="Temple et patrimoine Birmanie">
+          <div class="card card-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffeaa7" stroke-width="1.5">
+              <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+              <path d="M3.6 9h16.8"/>
+              <path d="M3.6 15h16.8"/>
+              <path d="M11.5 3a17 17 0 0 0 0 18"/>
+              <path d="M12.5 3a17 17 0 0 1 0 18"/>
+            </svg>
+            <h4>Une Parole d'Histoire</h4>
+            <p>Passage d'une icône de résistance à la tribune de l'Assemblée nationale de Naypyidaw.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2 : Intro & Problématique -->
+      <section>
+        <span class="badge badge-blue">Introduction</span>
+        <h3 style="margin-bottom: 25px;">Cadre & Problématique</h3>
+
+        <div class="grid-2">
+          <div class="card" style="border-left: 3px solid var(--pastel-blue);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="1.5">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <path d="M8 9h8"/>
+              <path d="M8 13h6"/>
+            </svg>
+            <h4>Problématique</h4>
+            <p style="font-size: 0.85em; color: #fff; line-height: 1.5; margin-top: 10px;">
+              « Comment, grâce au pouvoir de sa parole, Aung San Suu Kyi passe-t-elle d'un plaidoyer éthique pour l'inclusion des minorités aux compromis pragmatiques du pouvoir ? »
+            </p>
+          </div>
+
+          <img src="https://static.cnews.fr/sites/default/files/Diaporama/aung_san_suu_kyi_0.jpg" class="img-cover" alt="Hémicycle parlementaire">
+        </div>
+      </section>
+
+      <!-- SLIDE 3 : Contexte & Enjeux (Ancienne Slide 4 inversée) -->
+      <section>
+        <div class="slide-compact">
+          <span class="badge badge-blue">1. Contexte & Enjeux</span>
+          <h3>La Birmanie en 2012</h3>
+
+          <div class="grid-3">
+            <div class="card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ffeaa7" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <h4>50 Ans de Junte</h4>
+              <p>Sortie d'une dictature militaire fermée, libération après 20 ans d'assignation à résidence.</p>
+            </div>
+
+            <div class="card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <h4>135 Minorités</h4>
+              <p>Un pays morcelé par plus de 60 ans de guerres civiles entre le centre et les zones périphériques.</p>
+            </div>
+
+            <div class="card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <h4>Accord de Panglong</h4>
+              <p>Héritage politique de son père (1947) : promesse d'un fédéralisme garantissant l'égalité ethnique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 : Texte de référence (Ancienne Slide 3 inversée) -->
+      <section>
+        <span class="badge badge-yellow">Texte de Référence</span>
+        <h3 style="margin-bottom: 25px;">Extrait du 25 Juillet 2012</h3>
+
+        <div class="quote-container quote-reference">
+          « Pour qu'une véritable union démocratique puisse émerger, nous devons garantir la protection égale de toutes les nationalités ethniques. Le respect de leurs droits linguistiques et culturels n'est pas une menace pour l'unité nationale, mais sa seule véritable garantie.<br><br>
+          La paix ne peut se construire sur la domination d'un groupe sur les autres, mais sur la justice, la confiance mutuelle et l'État de droit. »
+          <div class="quote-author">— Aung San Suu Kyi, Assemblée nationale de Birmanie</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 : Analyse du discours (Layout côte-à-côte épuré) -->
+      <section>
+        <div class="analysis-layout">
+          <!-- Texte sur le côté gauche -->
+          <div class="quote-container" style="font-size: 0.7em; padding: 18px; margin: 0;">
+            <span class="phrase-yellow">« Pour qu'une véritable union démocratique puisse émerger, nous devons garantir la protection égale de toutes les nationalités ethniques. »</span><br>
+            <span class="phrase-blue">« Le respect de leurs droits linguistiques et culturels n'est pas une menace pour l'unité nationale, mais sa seule véritable garantie. »</span><br>
+            <span class="phrase-green">« La paix ne peut se construire sur la domination d'un groupe sur les autres, mais sur la justice, la confiance mutuelle et l'État de droit. »</span>
+          </div>
+
+          <!-- Analyse uniquement synthétique sur le côté droit -->
+          <div class="analysis-stack">
+            <div class="card analysis-card-compact" style="border-left: 4px solid var(--pastel-yellow);">
+              <h4 style="color: var(--pastel-yellow);">Modalité d'obligation</h4>
+            </div>
+
+            <div class="card analysis-card-compact" style="border-left: 4px solid var(--pastel-blue);">
+              <h4 style="color: var(--pastel-blue);">Tournure restrictive</h4>
+            </div>
+
+            <div class="card analysis-card-compact" style="border-left: 4px solid var(--pastel-green);">
+              <h4 style="color: var(--pastel-green);">Triade argumentative</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 : Forme, Voix & Posture -->
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffeaa7" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <h4>Posture & Tenue</h4>
+            <p style="font-size: 0.75em;">
+              • Tenue traditionnelle et fleurs dans les cheveux.<br>
+              • Immobilité digne face à 25% de militaires en uniforme.<br>
+              • Refus de toute provocation.
+              <img src="https://tricycle.org/wp-content/uploads/2025/11/Remise_du_Prix_Sakharov_a_Aung_San_Suu_Kyi_Strasbourg_22_octobre_2013-04-1687x1125.jpg" class="img-cover" style="height: 110px; margin-top: 8px;">
+            </p>
+          </div>
+
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="1.5">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+            </svg>
+            <h4>Maitrise de la Voix</h4>
+            <p style="font-size: 0.75em;">
+              • Ton calme, posé, débit mesuré sans éclats de voix.<br>
+              • Utilisation stratégique des silences.<br>
+              • Incarnation d'une « force tranquille » d'autorité morale.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7 : Notions HLP (Altérité) -->
+      <section>
+        <span class="badge badge-yellow"> Notions</span>
+        <h3 style="margin-bottom: 20px;">Les Enjeux de l'Altérité</h3>
+
+        <div class="grid-3">
+          <div class="card card-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffeaa7" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <h4>Enjeu Politique</h4>
+            <p>Passer de l'assimilation culturelle forcée au fédéralisme protecteur des minorités.</p>
+          </div>
+
+          <div class="card card-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <h4>Enjeu Éthique</h4>
+            <p>Reconnaître l'Autre dans sa pleine dignité linguistique, historique et culturelle.</p>
+          </div>
+
+          <div class="card card-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+            <h4>Enjeu Délibératif</h4>
+            <p>Remplacer la brutalité de la guerre civile par la parole juridique du Parlement.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8 : Posture Problématique & Postérité -->
+      <section>
+        <span class="badge badge-red"> Regard Critique</span>
+        <h3 style="margin-bottom: 10px;">Une Figure Problématique</h3>
+        <p style="font-size: 0.7em; color: var(--text-muted); margin-bottom: 20px;">
+          L'épreuve du pouvoir : du plaidoyer démocratique à la rupture éthique.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-col">
+            <div class="timeline-node">2012</div>
+            <strong>Discours d'Espoir</strong>
+
+          </div>
+
+          <div class="timeline-col">
+            <div class="timeline-node">2016</div>
+            <strong>Pouvoir Civil</strong>
+
+          </div>
+
+          <div class="timeline-col">
+            <div class="timeline-node danger">2017</div>
+            <strong style="color: var(--pastel-red);">Silence Rohingyas</strong>
+          </div>
+
+          <div class="timeline-col">
+            <div class="timeline-node danger">2019</div>
+            <strong style="color: var(--pastel-red);">La Haye (CIJ)</strong>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px; border-left: 3px solid var(--pastel-red);">
+          <p style="font-size: 0.7em; color: var(--text-main); margin: 0;">
+            <strong style="color: var(--pastel-red);">Bilan :</strong> Un décalage tragique entre l'idéal d'altérité défendu en 2012 et l'exclusion de la minorité la plus vulnérable au nom du pragmatisme politique et du nationalisme Bamar.
+          </p>
+        </div>
+      </section>
+
+      <!-- SLIDE 9 : Conclusion -->
+      <section>
+        <span class="badge badge-yellow">Conclusion</span>
+        <h3 style="margin-bottom: 20px;">Bilan de l'Exposé</h3>
+
+        <div class="grid-2">
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffeaa7" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h4>Le Pouvoir des Mots</h4>
+            <p style="font-size: 0.75em;">
+              Un modèle d'éloquence délibérative ayant réussi à imposer les droits des minorités comme obligation légale et constitutionnelle.
+            </p>
+          </div>
+
+          <div class="card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff7675" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <h4>Les Limites du Pouvoir</h4>
+            <p style="font-size: 0.75em;">
+              La tension irréconciliable entre la parole éthique de l'opposante et les dérives/silences pragmatiques de l'exercice du pouvoir.
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.85em; color: var(--pastel-yellow);">
+          <em> !:D </em>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js JS (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      center: true,
+      hash: true,
+      transition: 'fade',
+      width: 1000,
+      height: 650,
+      margin: 0.08
+    });
+
+    // Génération dynamique des capsules
+    const container = document.getElementById('capsulesContainer');
+    const slides = document.querySelectorAll('.reveal .slides > section');
+
+    slides.forEach((_, index) => {
+      const capsule = document.createElement('div');
+      capsule.classList.add('capsule');
+      if (index === 0) capsule.classList.add('active');
+
+      capsule.addEventListener('click', () => {
+        Reveal.slide(index);
+      });
+
+      container.appendChild(capsule);
+    });
+
+    // Synchronisation active de la capsule lors des changements de slide
+    Reveal.on('slidechanged', event => {
+      const currentIndex = event.indexh;
+      const capsules = document.querySelectorAll('.capsule');
+      capsules.forEach((capsule, index) => {
+        if (index === currentIndex) {
+          capsule.classList.add('active');
+        } else {
+          capsule.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
